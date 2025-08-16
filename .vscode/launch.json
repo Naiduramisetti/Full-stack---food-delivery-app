@@ -1,0 +1,24 @@
+// launch.js
+
+const http = require('http');
+
+// Function to handle requests and send responses
+const requestHandler = (req, res) => {
+  console.log(`Received request for URL: ${req.url}`);
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello, World!\n');
+};
+
+// Create a server
+const server = http.createServer(requestHandler);
+
+// Define the port to listen on
+const port = 3000;
+
+// Start the server
+server.listen(port, (err) => {
+  if (err) {
+    return console.log('Something bad happened', err);
+  }
+  console.log(`Server is listening on ${port}`);
+});
